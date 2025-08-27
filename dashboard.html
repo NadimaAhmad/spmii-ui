@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heatmap Dashboard (Simulasi)</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font: Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8f9fa;
+    }
+    h1, h5, h6 {
+      font-weight: 600;
+    }
+    .summary-card {
+      border-radius: 12px;
+      border: none;
+    }
+    .summary-card h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0d6efd;
+    }
+    .summary-card p {
+      font-size: 0.9rem;
+      color: #6c757d;
+      margin: 0;
+    }
+    table thead th {
+      font-weight: 600;
+      font-size: 0.95rem;
+      background-color: #f1f3f5;
+    }
+    .heatmap-cell {
+      text-align: center;
+      font-weight: 600;
+      color: white;
+      padding: 12px 0;
+      font-size: 0.9rem;
+      border-radius: 0; /* full cell, no rounded */
+    }
+    td, th {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container my-4">
+  <h1 class="mb-4 text-center">📊 Heatmap Dashboard (Simulasi Data)</h1>
+
+  <!-- Summary Section -->
+  <div id="summary" class="row g-3 mb-4"></div>
+
+  <!-- Heatmap Table -->
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Unit Performance Heatmap</h5>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered mb-0 align-middle">
+        <thead>
+          <tr>
+            <th style="min-width:250px">Unit Name</th>
+            <th>Unit Type</th>
+            <th>Indicators</th>
+            <th>Audits</th>
+            <th>Surveys</th>
+            <th>Documents</th>
+            <th>Overall</th>
+          </tr>
+        </thead>
+        <tbody id="heatmapTable"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+// === Fungsi Helper ===
+function getColor(score) {
+  if (score >= 80) return "#16a34a"; // hijau
+  if (score >= 60) return "#84cc16"; // hijau muda
+  if (score >= 40) return "#facc15"; // kuning
+  if (score >= 20) return "#f97316"; // oranye
+  return "#ef4444"; // merah
+}
+
+function getStatus(score) {
+  if (score >= 80) return "Excellent";
+  if (score >= 60) return "Good";
+  if (score >= 40) return "Average";
+  if (score >= 20) return "Needs Improvement";
+  return "Poor";
+}
+
+function randomScore() {
+  return Math.floor(Math.random() * 101); // 0-100
+}
+
+// === Simulasi Data ===
+const unitNames = [
+  "Universitas Putra Indonesia YPTK Padang",
+  "Fakultas Teknik",
+  "Fakultas Ekonomi dan Bisnis",
+  "Fakultas Hukum",
+  "Departemen Teknik Informatika",
+  "Departemen Teknik Sipil",
+  "Program Studi Teknik Informatika (S1)",
+  "Program Studi Sistem Informasi (S1)",
+  "Program Studi Teknik Komputer (D3)",
+  "Program Studi Teknik Sipil (S1)",
+  "Program Studi Arsitektur (S1)",
+  "Program Studi Manajemen (S1)",
+  "Program Studi Akuntansi (S1)",
+  "Program Studi Ekonomi Pembangunan (S1)",
+  "Program Studi Ilmu Hukum (S1)"
+];
+
+const unitTypes = [
+  "University", "Faculty", "Faculty", "Faculty", "Department", "Department",
+  "Study Program", "Study Program", "Study Program", "Study Program",
+  "Study Program", "Study Program", "Study Program", "Study Program", "Study Program"
+];
+
+// Generate data acak
+let heatmap_data = unitNames.map((name, idx) => {
+  let indicators = randomScore();
+  let audits = randomScore();
+  let surveys = randomScore();
+  let documents = randomScore();
+  let overall = Math.round((indicators + audits + surveys + documents) / 4);
+  
+  return {
+    unit_name: name,
+    unit_type: unitTypes[idx],
+    scores: {
+      indicators: { score: indicators, status: getStatus(indicators) },
+      audits: { score: audits, status: getStatus(audits) },
+      surveys: { score: surveys, status: getStatus(surveys) },
+      documents: { score: documents, status: getStatus(documents) }
+    },
+    overall_score: overall,
+    overall_status: getStatus(overall)
+  };
+});
+
+// Summary
+const avgScore = Math.round(heatmap_data.reduce((sum, u) => sum + u.overall_score, 0) / heatmap_data.length);
+const bestUnit = heatmap_data.reduce((best, u) => u.overall_score > best.overall_score ? u : best, heatmap_data[0]);
+
+const summaryData = {
+  total_units: heatmap_data.length,
+  average_score: avgScore,
+  best_performing_unit: bestUnit.unit_name,
+  areas_for_focus: ["Quality Management", "Process Improvement"]
+};
+
+// === Render Summary ===
+document.getElementById('summary').innerHTML = `
+  <div class="col-md-3">
+    <div class="card summary-card shadow-sm p-3 text-center">
+      <p>Total Units</p>
+      <h4>${summaryData.total_units}</h4>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card summary-card shadow-sm p-3 text-center">
+      <p>Average Score</p>
+      <h4>${summaryData.average_score}</h4>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card summary-card shadow-sm p-3 text-center">
+      <p>Best Performing Unit</p>
+      <small>${summaryData.best_performing_unit}</small>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card summary-card shadow-sm p-3 text-center">
+      <p>Focus Areas</p>
+      <small>${summaryData.areas_for_focus.join(', ')}</small>
+    </div>
+  </div>
+`;
+
+// === Render Table ===
+const tableBody = document.getElementById('heatmapTable');
+heatmap_data.forEach(unit => {
+  tableBody.innerHTML += `
+    <tr>
+      <td>${unit.unit_name}</td>
+      <td>${unit.unit_type}</td>
+      <td class="heatmap-cell" style="background:${getColor(unit.scores.indicators.score)}">${unit.scores.indicators.score}</td>
+      <td class="heatmap-cell" style="background:${getColor(unit.scores.audits.score)}">${unit.scores.audits.score}</td>
+      <td class="heatmap-cell" style="background:${getColor(unit.scores.surveys.score)}">${unit.scores.surveys.score}</td>
+      <td class="heatmap-cell" style="background:${getColor(unit.scores.documents.score)}">${unit.scores.documents.score}</td>
+      <td class="heatmap-cell" style="background:${getColor(unit.overall_score)}">${unit.overall_score}</td>
+    </tr>
+  `;
+});
+</script>
+
+</body>
+</html>

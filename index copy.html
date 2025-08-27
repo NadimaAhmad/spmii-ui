@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heatmap Unit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 20px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .header h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .header p {
+      margin: 4px 0 0 0;
+      font-size: 13px;
+      color: #666;
+    }
+    select {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    td, th {
+      padding: 8px;
+      text-align: center;
+      font-size: 14px;
+    }
+    th {
+      font-weight: 500;
+      color: #444;
+    }
+    .row-label {
+      text-align: left;
+      font-weight: 500;
+      color: #333;
+    }
+    .heat-cell {
+      height: 32px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="header">
+    <div>
+      <h3>Heatmap Unit</h3>
+      <p>Visualisasi kinerja mutu per fakultas berdasarkan skor penilaian.</p>
+    </div>
+    <div>
+      <select>
+        <option>Tahun</option>
+        <option>2025</option>
+        <option>2024</option>
+        <option>2023</option>
+      </select>
+    </div>
+  </div>
+
+  <table id="heatmap">
+    <thead>
+      <tr>
+        <th></th>
+        <th>0–10</th>
+        <th>11–25</th>
+        <th>26–40</th>
+        <th>41–50</th>
+        <th>50+</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script>
+const faculties = [
+  "Ilmu Komputer",
+  "Teknik",
+  "Ekonomi dan Bisnis",
+  "Psikologi",
+  "Desain Komunikasi Visual",
+  "Keguruan dan Ilmu Pendidikan"
+];
+
+function randomScore() {
+  return Math.floor(Math.random() * 101);
+}
+
+function getColor(score) {
+  // Gradasi kuning
+  if (score <= 10) return "#fde68a";
+  if (score <= 25) return "#fcd34d";
+  if (score <= 40) return "#fbbf24";
+  if (score <= 50) return "#f59e0b";
+  return "#d97706";
+}
+
+function generateData() {
+  const data = faculties.map(faculty => {
+    let row = [];
+    for (let i = 0; i < 5; i++) {
+      const score = randomScore();
+      row.push({score, color: getColor(score)});
+    }
+    return {faculty, row};
+  });
+  return data;
+}
+
+function renderTable() {
+  const tbody = document.querySelector("#heatmap tbody");
+  tbody.innerHTML = "";
+  const data = generateData();
+  
+  data.forEach(item => {
+    const tr = document.createElement("tr");
+    const tdLabel = document.createElement("td");
+    tdLabel.textContent = item.faculty;
+    tdLabel.classList.add("row-label");
+    tr.appendChild(tdLabel);
+    
+    item.row.forEach(cell => {
+      const td = document.createElement("td");
+      const div = document.createElement("div");
+      div.classList.add("heat-cell");
+      div.style.backgroundColor = cell.color;
+      td.appendChild(div);
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+renderTable();
+</script>
+
+</body>
+</html>

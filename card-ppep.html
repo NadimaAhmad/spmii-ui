@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
+
+  <title>UI</title>
+</head>
+
+<style>
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .malintang {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .panuah {
+    justify-content: space-between;
+  }
+
+  .dashboard {
+    height: 200px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  .dashboard {
+    height: 200px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  .grafik {
+    height: 300px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  input {
+    scale: 1;
+  }
+
+  /* input:hover {
+        scale: 1.2;
+        animation: ease 1ms ;
+    } */
+</style>
+
+<body class="jkt-font bg-body-tertiary jkt-font">
+
+  <!-- card PPEP - Grafik -->
+  <div class="container-fluid  p-4">
+    <div class="row   ">
+      <div class="col bg-white border-bottom border-top rounded-top-4  pt-3">
+        <div class="d-flex justify-content-between align-items-center pb-3">
+          <div class="">
+            <p class="fw-bold">Status PPEP</p>
+            <p class="pkecil">Presentase data tahunan</p>
+          </div>
+          <div class="">
+            <form action="" class="input-group" method="post">
+              <select name="" class="form-select" id="">
+                <option value="Tahun">Tahun</option>
+                <option value="Bulan">Bulan</option>
+                <option value="Minggu">Minggu</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row  bg-white border-bottom    ">
+      <div class="col ">
+        <!-- grafik -->
+        <div class="d-flex justify-content-center flex-column py-5 align-items-center">
+          <div class="btn text-bg-success">
+            <p>Baik</p>
+          </div>
+          <p class="display-1 fw-bold">70%</p>
+          <p class="small text-muted">Rata-rata PPEP tahun 2025</p>
+          <p></p>
+        </div>
+        <!-- Bawah grafik -->
+        <div class="d-flex  justify-content-center flex-wrap gap-4 pb-5 ">
+          <p class="border-start border-5 border-success pkecil ps-2">Perencanaan</p>
+          <p class="border-start border-5 border-success pkecil ps-2">Pelaksanaan</p>
+          <p class="border-start border-5 border-success pkecil ps-2">Evaluasi</p>
+          <p class="border-start border-5 border-success pkecil ps-2">Pengendalian</p>
+          <p class="border-start border-5 border-success pkecil ps-2">Peningkatan</p>
+
+        </div>
+
+      </div>
+    </div>
+    <!-- card footer -->
+    <div class="row bg-white py-3 rounded-bottom-4 shadow border-bottom  ">
+      <div class="col">
+      <div class="d-flex justify-content-between">
+          <p>Lihat detail</p>
+        <i class="bi bi-arrow-right"></i>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- card capaian indikator -->
+   <div class="container-fluid p-4 ">
+    <div class="row   ">
+      <div class="col bg-white border-bottom border-top rounded-top-4 pt-3">
+        <div class="d-flex justify-content-between align-items-center pb-3">
+          <div class="">
+            <p class="fw-bold">Status Capaian indikator</p>
+            <p class="pkecil">Perbandingan target dan capaian</p>
+          </div>
+          <div class="">
+            <form action="" class="input-group" method="post">
+              <select name="" class="form-select" id="">
+                <option value="Tahun">Tahun</option>
+                <option value="Bulan">Bulan</option>
+                <option value="Minggu">Minggu</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row  bg-white border-bottom    ">
+      <div class="col ">
+        <!-- grafik -->
+        <div class="d-flex justify-content-start flex-column py-5 align-items-start">
+          <div class="btn text-dark bg-warning-subtle bg-gradient">
+            <p>Cukup</p>
+          </div>
+          <div class="d-flex align-items-end gap-3 mt-2 ">
+            <p class="display-1 fw-bold">14 / 20 </p><small class="mb-2 text-muted">indikator</small>
+          </div>
+          <div class="w-100 mt-2">
+            <div class="progress" style="height: 30px; background: #e3e3e3;">
+              <div class="progress-bar" role="progressbar" style="width: 60%; background: linear-gradient(90deg, #829e1b 0%, #c8fa02 100%);" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <p></p>
+        </div>
+       
+
+      </div>
+    </div>
+    <!-- card footer -->
+    <div class="row bg-white py-3 rounded-bottom-4 border-bottom shadow ">
+      <div class="col">
+      <div class="d-flex justify-content-between">
+          <p>Lihat detail</p>
+        <i class="bi bi-arrow-right"></i>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- card mutu internal -->
+   <div class="container-fluid p-4 ">
+    <div class="row   ">
+      <div class="col bg-white border-bottom border-top rounded-top-4 pt-3">
+        <div class="d-flex justify-content-between align-items-center pb-3">
+          <div class="">
+            <p class="fw-bold">Status audit mutu internal</p>
+            <p class="pkecil">Progres audit dan tindak lanjut</p>
+          </div>
+          <div class="">
+            <form action="" class="input-group" method="post">
+              <select name="" class="form-select" id="">
+                <option value="Tahun">Tahun</option>
+                <option value="Bulan">Bulan</option>
+                <option value="Minggu">Minggu</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row  bg-white border-bottom    ">
+      <div class="col ">
+        <!-- grafik -->
+        <div class="d-flex justify-content-start flex-column py-5 align-items-start">
+          <div class="btn text-danger bg-danger-subtle bg-gradient">
+            <p>Kurang</p>
+          </div>
+          <div class="d-flex align-items-end gap-3 mt-2 ">
+            <p class="display-1 fw-bold">10 / 19 </p><small class="mb-2 text-muted">indikator</small>
+          </div>
+          <div class="w-100 mt-2">
+            <div class="progress" style="height: 30px; background: #f8d7da;">
+              <div class="progress-bar" role="progressbar" style="width: 60%; background: linear-gradient(90deg, #b71c1c 0%, #f44336 100%);" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <p></p>
+        </div>
+       
+
+      </div>
+    </div>
+    <!-- card footer -->
+    <div class="row bg-white py-3 rounded-bottom-4 border-bottom shadow ">
+      <div class="col">
+      <div class="d-flex justify-content-between">
+          <p>Lihat detail</p>
+        <i class="bi bi-arrow-right"></i>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- card prediksi tren -->
+<div class="container-fluid p-4 ">
+  <div class="row">
+    <div class="col bg-white border-bottom border-top rounded-top-4 pt-3">
+      <div class="d-flex justify-content-between align-items-center pb-3">
+        <div>
+          <p class="fw-bold">Prediksi Tren</p>
+          <p class="pkecil">Prediksi perkembangan kinerja ..</p>
+        </div>
+        <div>
+          <form action="" class="input-group" method="post">
+            <select name="" class="form-select" id="">
+              <option value="Tahun">Tahun</option>
+              <option value="Bulan">Bulan</option>
+              <option value="Minggu">Minggu</option>
+            </select>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- isi grafik -->
+  <div class="row bg-white border-bottom">
+    <div class="col p-4">
+      <canvas id="prediksiChart" height="140"></canvas>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="row bg-white py-3 rounded-bottom-4 border-bottom shadow">
+    <div class="col">
+      <div class="d-flex justify-content-between">
+        <p>Lihat detail</p>
+        <i class="bi bi-arrow-right"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- load chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('prediksiChart').getContext('2d');
+
+// gradient fill
+const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+gradient.addColorStop(0, "rgba(255, 206, 86, 0.9)");
+gradient.addColorStop(1, "rgba(255, 206, 86, 0.1)");
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep'],
+    datasets: [
+      {
+        label: 'Persentase',
+        data: [45,55,38,62,75,90,59,87,70],
+        backgroundColor: gradient,
+        borderColor: '#f9b500',
+        borderWidth: 2,
+        borderSkipped: false,
+        borderRadius: 2,
+        barPercentage: 0.6
+      },
+      {
+        // titik prediksi Juli
+        type: 'scatter',
+        label: 'Prediksi',
+        data: [
+          {x: 'Jul', y: 62}
+        ],
+        backgroundColor: '#ffcc00',
+        pointRadius: 6,
+        pointHoverRadius: 8,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#fff',
+        titleColor: '#000',
+        bodyColor: '#000',
+        borderColor: '#ddd',
+        borderWidth: 1,
+        padding: 12,
+        displayColors: false,
+        callbacks: {
+          title: (context) => {
+            return `Juli 2025`;
+          },
+          label: (context) => {
+            if (context.dataset.type === "scatter") return ""; 
+            if (context.dataIndex === 6) {
+              return [`59%`, `-23%`];
+            }
+            return `${context.formattedValue}%`;
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+        ticks: { stepSize: 20 },
+        grid: { color: "#eee" }
+      },
+      x: {
+        grid: { display: false }
+      }
+    }
+  }
+});
+</script>
+
+<!-- card notifikasi -->
+<div class="container-fluid p-4">
+  <div class="row">
+    <div class="col bg-white border-bottom border-top rounded-top-4 pt-3">
+      <div class="d-flex justify-content-between align-items-center pb-3">
+        <div>
+          <p class="fw-bold">Notifikasi</p>
+          <p class="pkecil">Daftar pengingat dan informasi terbaru untuk Anda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- isi notifikasi -->
+  <div class="row bg-white border-bottom">
+    <div class="col p-3">
+
+      <!-- item 1 -->
+      <div class="d-flex justify-content-between mb-4">
+        <div class="d-flex gap-3">
+          <div class="rounded-circle d-flex align-items-center justify-content-center" 
+               style="width:40px; height:40px; background:#fde8e7;">
+            <i class="bi bi-exclamation-triangle text-danger"></i>
+          </div>
+          <div>
+            <p class="fw-bold mb-1">Peringatan!</p>
+            <p class="mb-1 text-muted small">
+              Sinkronisasi data SIMPEG terakhir gagal. Mohon cek koneksi API atau hubungi admin sistem.
+            </p>
+            <a href="#" class="text-decoration-none">Periksa →</a>
+          </div>
+        </div>
+        <p class="text-muted  pkecil">Hari ini</p>
+      </div>
+
+      <!-- item 2 -->
+      <div class="d-flex justify-content-between mb-4">
+        <div class="d-flex gap-3">
+          <div class="rounded-circle d-flex align-items-center justify-content-center" 
+               style="width:40px; height:40px; background:#fff8db;">
+            <i class="bi bi-pencil text-warning"></i>
+          </div>
+          <div>
+            <p class="fw-bold mb-1">Tindak Lanjut Diperlukan!</p>
+            <p class="mb-1 text-muted small">
+              Audit Internal Prodi Akuntansi menghasilkan 3 temuan yang belum ditindaklanjuti.
+            </p>
+            <a href="#" class="text-decoration-none">Detail →</a>
+          </div>
+        </div>
+        <p class="text-muted  pkecil">23 Menit</p>
+      </div>
+
+      <!-- item 3 -->
+      <div class="d-flex justify-content-between mb-2">
+        <div class="d-flex gap-3">
+          <div class="rounded-circle d-flex align-items-center justify-content-center" 
+               style="width:40px; height:40px; background:#e6f7ed;">
+            <i class="bi bi-check2-square text-success"></i>
+          </div>
+          <div>
+            <p class="fw-bold mb-1">Dokumen Siap!</p>
+            <p class="mb-1 text-muted small">
+              Laporan Evaluasi PPEPP Fakultas Ekonomi telah disetujui dan siap diunduh.
+            </p>
+            <a href="#" class="text-decoration-none">Unduh →</a>
+          </div>
+        </div>
+        <p class="text-muted   pkecil">1 Jam</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="row bg-light py-3 rounded-bottom-4 border-bottom shadow-sm">
+    <div class="col">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="#" class="fw-semibold text-dark text-decoration-none">Lihat Semua</a>
+        <i class="bi bi-arrow-right"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- card heatmap -->
+<div class="container-fluid p-4">
+  <div class="row">
+    <div class="col bg-white border-bottom border-top rounded-top-4 pt-3">
+      <div class="d-flex justify-content-between align-items-center pb-3">
+        <div>
+          <p class="fw-bold">Heatmap Unit</p>
+          <p class="pkecil">Visualisasi kinerja mutu per fakultas berdasarkan skor penilaian.</p>
+        </div>
+        <div>
+          <form action="" class="input-group" method="post">
+            <select name="" class="form-select" id="">
+              <option value="Tahun">Tahun</option>
+              <option value="Bulan">Bulan</option>
+              <option value="Minggu">Minggu</option>
+            </select>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- isi heatmap -->
+  <div class="row bg-white border-bottom">
+    <div class="col p-4">
+
+      <div class="d-flex flex-column gap-3">
+
+        <!-- baris -->
+        <div class="d-flex align-items-center gap-3">
+          <div class="col-2 small">Ilmu Komputer</div>
+          <div class="d-flex flex-grow-1 gap-2">
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-1"></div>
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-1"></div>
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-3"></div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="col-2 small">Teknik</div>
+          <div class="d-flex flex-grow-1 gap-2">
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-1"></div>
+            <div class="heat-box bg-heat-2"></div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="col-2 small">Ekonomi dan Bisnis</div>
+          <div class="d-flex flex-grow-1 gap-2">
+            <div class="heat-box bg-heat-1"></div>
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-1"></div>
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-3"></div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="col-2 small">Psikologi</div>
+          <div class="d-flex flex-grow-1 gap-2">
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-1"></div>
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-3"></div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="col-2 small">Desain Komunikasi Visual</div>
+          <div class="d-flex flex-grow-1 gap-2">
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-1"></div>
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-1"></div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="col-2 small">Keguruan dan Ilmu Pendidikan</div>
+          <div class="d-flex flex-grow-1 gap-2">
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-3"></div>
+            <div class="heat-box bg-heat-2"></div>
+            <div class="heat-box bg-heat-1"></div>
+            <div class="heat-box bg-heat-2"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- footer kolom -->
+      <div class="d-flex justify-content-around mt-4 text-muted">
+        <small>&lt;16</small>
+        <small>16–20</small>
+        <small>21–30</small>
+        <small>31–40</small>
+        <small>41–50</small>
+        <small>50+</small>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CSS -->
+<style>
+.heat-box {
+  flex: 1;
+  height: 40px;
+  border-radius: 6px;
+}
+.bg-heat-1 { background: #ffe89c; } /* paling terang */
+.bg-heat-2 { background: #f9c92c; } /* kuning */
+.bg-heat-3 { background: #d19c00; } /* kuning tua */
+</style>
+
+
+
+
+</body>
+
+</html>
