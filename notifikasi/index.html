@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Slicing UI aplikasi LPMII UPI YPTK: tampilan dashboard, navigasi, dan modul mutu kampus berbasis Bootstrap untuk pengalaman pengguna yang modern dan responsif.">
+    <meta property="og:image" content="https://www.upiyptk.ac.id/imagefile/icon/upiyptk">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Notifikasi - UI LPMII</title>
+
+    <style>
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .btn-hover:hover {
+            background-color: #fff89d;
+            font-weight: bolder;
+        }
+
+        /* bang aji, ini style untuk tab-nya */
+        .nav-tabs {
+            border-bottom: none;
+            gap: 5px;
+        }
+
+        .nav-tabs .nav-link {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            color: #6c757d;
+            background-color: #fff;
+        }
+
+        .nav-tabs .nav-link.active,
+        .nav-tabs .nav-item.show .nav-link {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* bang aji, ini style untuk item notifikasi */
+        .notification-item .icon-wrapper {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-body-tertiary jkt-font">
+
+    <div class="container-fluid position-relative p-0 m-0">
+        <div class="row g-0">
+            <nav class="navbar navbar-light bg-white shadow-sm fixed-top d-lg-none">
+                <div class="container-fluid">
+                    <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#sidebarOffcanvas">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <span class="navbar-brand ms-2">SPMII</span>
+                </div>
+            </nav>
+
+            <div class="d-none d-lg-block position-fixed h-100 bg-white shadow-sm p-3" style="width: 250px;"
+                id="sidebar">
+                <div class="mb-4 text-center">
+                    <img src="https://www.upiyptk.ac.id/imagefile/icon/upiyptk" height="50" alt="Logo">
+                </div>
+
+                <nav class="nav flex-column">
+                    <a href="../index.html" class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                    <a href="../notifikasi/index.html"
+                        class="nav-link pkecil btn-hover ms-2 btn btn-warning active d-flex align-items-center gap-2 text-dark">
+                        <i class="bi bi-bell-fill"></i> Notifikasi
+                    </a>
+                </nav>
+
+                <hr>
+
+                <div class="mt-3">
+                    <small class="fw-bold text-uppercase text-muted px-2">Modul SPMII</small>
+                    <nav class="nav flex-column mt-2">
+                         <a href="../dokumen-mutu/index.html"
+                            class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                            <i class="bi bi-folder2-open"></i> Dokumen Mutu
+                        </a>
+                        <a href="../indikator-mutu/index.html"
+                            class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                            <i class="bi bi-graph-up"></i> Indikator Mutu
+                        </a>
+                       
+                        <a href="../monitoring-mutu/index.html"
+                            class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                            <i class="bi bi-search"></i> Monitoring & Evaluasi
+                        </a>
+                           <a href="../survey-mutu/index.html" class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+              <i class="bi bi-calendar-event"></i> Survey Mutu
+            </a>
+                        <a href="../audit-mutu/index.html"
+                            class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                            <i class="bi bi-shield-check"></i> Audit Mutu
+                        </a>
+                        <a href="#"
+                            class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                            <i class="bi bi-award"></i> Akreditasi
+                        </a>
+                    </nav>
+                </div>
+
+                <hr>
+
+                <div class="mt-3">
+                    <small class="fw-bold text-uppercase text-muted px-2">Pengaturan Sistem</small>
+                    <nav class="nav flex-column mt-2">
+                        <a href="#"
+                            class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                            <i class="bi bi-people"></i> Manajemen Pengguna
+                        </a>
+                        <a href="#"
+                            class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                            <i class="bi bi-diagram-3"></i> Integrasi Sistem
+                        </a>
+                        <a href="#"
+                            class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                            <i class="bi bi-gear-fill"></i> Pengaturan Akun
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="position-absolute bottom-0 ms-3 start-0 w-100 p-3">
+                    <a href="#" class="nav-link pkecil btn-hover ms-2 btn d-flex align-items-center gap-2 text-muted">
+                        <i class="bi bi-question-circle"></i> Pusat Bantuan
+                    </a>
+                    <a href="#"
+                        class="nav-link pkecil btn-hover ms-2 mt-2 btn d-flex align-items-center gap-2 text-danger">
+                        <i class="bi bi-box-arrow-right"></i> Keluar
+                    </a>
+                </div>
+            </div>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas">
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-2 d-lg-block d-none"></div>
+            <div class="col ps-lg-5 pe-lg-5">
+                <div class=" px-3 d-flex flex-row  align-items-center justify-content-between mt-3">
+                    <input type="text" class="form-control w-50 shadow-sm" placeholder="Cari...">
+                    <div class="d-flex gap-2">
+                        <div class="bg-white px-3 py-2 shadow-sm rounded-3">
+                            <i class="bi bi-bell fs-4"></i>
+                        </div>
+                        <div class="bg-white px-3 py-2 shadow-sm  rounded-3" style="width: 250px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex gap-2">
+                                    <img src="https://i.pinimg.com/736x/eb/76/a4/eb76a46ab920d056b02d203ca95e9a22.jpg"
+                                        width="40px" class="rounded-2 me-2" alt="">
+                                    <div class="">
+                                        <p class="p pkecil fw-bold">Fadel Muhammad</p>
+                                        <p class="pkecil text-muted" style="margin-top: -3px;">Staf LPMI</p>
+                                    </div>
+                                </div>
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid mt-3" id="notifikasiContent">
+                    <div class="banner py-4 mb-3">
+                        <h2 class="fw-bold">Notifikasi</h2>
+                        <p class="text-muted">Informasi terbaru dan pengingat penting untuk Anda</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-4 shadow-sm">
+                        <ul class="nav nav-tabs mb-4" id="notifikasiTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#semua-pane" type="button"
+                                    role="tab">Semua</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#reminder-pane"
+                                    type="button" role="tab">Reminder/Deadline</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#ready-pane" type="button"
+                                    role="tab">Ready</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tindak-lanjut-pane"
+                                    type="button" role="tab">Tindak Lanjut</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#event-pane" type="button"
+                                    role="tab">Event</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#warning-pane"
+                                    type="button" role="tab">Warning/Error</button>
+                            </li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="input-group" style="width: 300px;">
+                                <input type="text" class="form-control" placeholder="Ketik Kata Kunci...">
+                                <button class="btn btn-outline-secondary" type="button"><i
+                                        class="bi bi-search"></i></button>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-outline-secondary"><i class="bi bi-check-circle"></i></button>
+                                <button class="btn btn-outline-secondary"><i class="bi bi-funnel"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="notifikasiTabContent">
+                            <div class="tab-pane fade" id="semua-pane" role="tabpanel">
+                                <p class="text-center text-muted p-5">Semua notifikasi akan ditampilkan di sini.</p>
+                            </div>
+
+                            <div class="tab-pane fade show active" id="reminder-pane" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="d-flex align-items-start gap-3 p-3 notification-item">
+                                            <div
+                                                class="icon-wrapper rounded-circle d-flex align-items-center justify-content-center bg-danger-subtle">
+                                                <i class="bi bi-exclamation-triangle-fill text-danger"></i>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="fw-bold mb-1">Peringatan!</p>
+                                                    <small class="text-muted">Hari ini</small>
+                                                </div>
+                                                <p class="text-muted small mb-1">Sinkronisasi data SIMPEG terakhir
+                                                    gagal. Mohon cek koneksi API atau hubungi admin sistem.</p>
+                                                <a href="#" class="fw-semibold text-decoration-none">Periksa &rarr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 p-3 notification-item">
+                                            <div
+                                                class="icon-wrapper rounded-circle d-flex align-items-center justify-content-center bg-warning-subtle">
+                                                <i class="bi bi-pencil-fill text-warning"></i>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="fw-bold mb-1">Tindak Lanjut Diperlukan!</p>
+                                                    <small class="text-muted">23 Menit</small>
+                                                </div>
+                                                <p class="text-muted small mb-1">Audit Internal Prodi Akuntansi
+                                                    menghasilkan 3 temuan yang belum ditindaklanjuti.</p>
+                                                <a href="#" class="fw-semibold text-decoration-none">Detail &rarr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 p-3 notification-item">
+                                            <div
+                                                class="icon-wrapper rounded-circle d-flex align-items-center justify-content-center bg-success-subtle">
+                                                <i class="bi bi-check-square-fill text-success"></i>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="fw-bold mb-1">Dokumen Siap!</p>
+                                                    <small class="text-muted">1 Jam</small>
+                                                </div>
+                                                <p class="text-muted small mb-1">Laporan Evaluasi PPEPP Fakultas Ekonomi
+                                                    telah disetujui dan siap diunduh.</p>
+                                                <a href="#" class="fw-semibold text-decoration-none">Unduh &rarr;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="d-flex align-items-start gap-3 p-3 notification-item">
+                                            <div
+                                                class="icon-wrapper rounded-circle d-flex align-items-center justify-content-center bg-danger-subtle">
+                                                <i class="bi bi-exclamation-triangle-fill text-danger"></i>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="fw-bold mb-1">Peringatan!</p>
+                                                    <small class="text-muted">Hari ini</small>
+                                                </div>
+                                                <p class="text-muted small mb-1">Sinkronisasi data SIMPEG terakhir
+                                                    gagal. Mohon cek koneksi API atau hubungi admin sistem.</p>
+                                                <a href="#" class="fw-semibold text-decoration-none">Periksa &rarr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 p-3 notification-item">
+                                            <div
+                                                class="icon-wrapper rounded-circle d-flex align-items-center justify-content-center bg-warning-subtle">
+                                                <i class="bi bi-pencil-fill text-warning"></i>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="fw-bold mb-1">Tindak Lanjut Diperlukan!</p>
+                                                    <small class="text-muted">23 Menit</small>
+                                                </div>
+                                                <p class="text-muted small mb-1">Audit Internal Prodi Akuntansi
+                                                    menghasilkan 3 temuan yang belum ditindaklanjuti.</p>
+                                                <a href="#" class="fw-semibold text-decoration-none">Detail &rarr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 p-3 notification-item">
+                                            <div
+                                                class="icon-wrapper rounded-circle d-flex align-items-center justify-content-center bg-success-subtle">
+                                                <i class="bi bi-check-square-fill text-success"></i>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="fw-bold mb-1">Dokumen Siap!</p>
+                                                    <small class="text-muted">1 Jam</small>
+                                                </div>
+                                                <p class="text-muted small mb-1">Laporan Evaluasi PPEPP Fakultas Ekonomi
+                                                    telah disetujui dan siap diunduh.</p>
+                                                <a href="#" class="fw-semibold text-decoration-none">Unduh &rarr;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="ready-pane" role="tabpanel">
+                                <p class="text-center text-muted p-5">Notifikasi kategori "Ready" akan ditampilkan di
+                                    sini.</p>
+                            </div>
+                            <div class="tab-pane fade" id="tindak-lanjut-pane" role="tabpanel">
+                                <p class="text-center text-muted p-5">Notifikasi kategori "Tindak Lanjut" akan
+                                    ditampilkan di sini.</p>
+                            </div>
+                            <div class="tab-pane fade" id="event-pane" role="tabpanel">
+                                <p class="text-center text-muted p-5">Notifikasi kategori "Event" akan ditampilkan di
+                                    sini.</p>
+                            </div>
+                            <div class="tab-pane fade" id="warning-pane" role="tabpanel">
+                                <p class="text-center text-muted p-5">Notifikasi kategori "Warning/Error" akan
+                                    ditampilkan di sini.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
